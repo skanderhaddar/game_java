@@ -1,7 +1,7 @@
 public class joueur {
-public static int score=0 ; 
+public  int score=0 ; 
 public String name ; 
-public joueur(  ) {
+public joueur( ) {
 	this.score = 0;
 
 	this.name = "";

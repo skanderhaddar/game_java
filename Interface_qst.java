@@ -29,10 +29,8 @@ public class Interface_qst implements ActionListener {
     JLabel qst_label, pre, scorLabel;
     JPanel principal_pan, pre_joueur, qst_pre, scorPanel;
     JTextField reponsTextField;
-    joueur j1, j2, j_actuelle;
     Interface Interface;
     joueur[] J;
-    joueur j11 , j22 ;
     int i, randomNum;
     String reponse, qst;
     JPanel pan_final;
@@ -50,10 +48,7 @@ public class Interface_qst implements ActionListener {
         J = new joueur[2];
         J[0] = j1;
         J[1] = j2;
-        j11 = j1 ;
-        j22 = j2 ;
-        j1.setScore(0);
-        j2.setScore(0);
+       
         i = 0;
         pre = new JLabel();
         pre.setText(J[i].getName());
@@ -115,17 +110,16 @@ public class Interface_qst implements ActionListener {
 
         principal_pan.add(pre_joueur);
         principal_pan.add(qst_pre);
-        scorLabel.setText(String.valueOf(J[i].getName()) + "votre score est = " + String.valueOf(J[i].getScore()));
         scorPanel.add(scorLabel);
         principal_pan.add(scorPanel);
         principal_pan.add(getscore);
+        
 
         scorLabel.setText(String.valueOf(J[i].getName()) + "votre score est = " + String.valueOf(J[i].getScore()));
         System.out.println(String.valueOf(J[i].getName()) + " " + String.valueOf(J[i].getScore()));
 
         repButton.addActionListener(this);
         getscore.addActionListener(this);
-        j11.setScore(j11.getScore() + 1);
         
 
         // nextInt is normally exclusive of the top value,
@@ -136,44 +130,29 @@ public class Interface_qst implements ActionListener {
     // questions = new ArrayList(M1.Keys()) ;
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == repButton) {
-            // if (questions.size()==1)
-            // {
-            // l5.setText("les questions sont finis, aucun joueur a gagné") ;
-            // scorLabel1.setText("le score de "+ String.valueOf(J[0].getName()) + " = " +
-            // String.valueOf(J[1].getScore())) ;
-            // }
+             if (questions.size()==1)
+              {
+             l5.setText("les questions sont finis, aucun joueur a gagné") ;
+             scorLabel1.setText("le score de "+ String.valueOf(J[0].getName()) + " = " +
+              String.valueOf(J[1].getScore())) ;
+          }
 
-            // if (J[0].getScore() == 5 )
-            // {
-            // l5.setText("le joueur " + String.valueOf(J[1].getName()) +" est gagnant ") ;
-            // scorLabel1.setText("le score de "+ String.valueOf(J[0].getName()) + " = " +
-            // String.valueOf(J[0].getScore())) ;
-            // }
+             if (J[0].getScore() == 3 )
+             {
+             l5.setText("le joueur " + String.valueOf(J[0].getName()) +" est gagnant ") ;
+             scorLabel1.setText("le score de "+ String.valueOf(J[0].getName()) + " = " +
+             String.valueOf(J[0].getScore())) ;
+             }
 
-            // if (J[1].getScore() == 5 )
-            // {
-            // l5.setText("le joueur " + String.valueOf(j2.getName()) +" est gagnant ") ;
-            // scorLabel1.setText("le score de "+ String.valueOf(J[1].getName()) + " = " +
-            // String.valueOf(J[1].getScore())) ;
-            // }
+             if (J[1].getScore() == 3 )
+             {
+             l5.setText("le joueur " + String.valueOf(J[1].getName()) +" est gagnant ") ;
+             scorLabel1.setText("le score de "+ String.valueOf(J[1].getName()) + " = " +
+             String.valueOf(J[1].getScore())) ;
+             }
 
-            // randomNum = ThreadLocalRandom.current().nextInt(0, questions.size() + 1);
-            // les_reponse = new ArrayList<>();
-            // les_reponse.add(qst);
-            // qst = questions.get(randomNum);
-            // qst_label.setText(qst);
-            // questions.remove(randomNum);
-            // if (i == 0) {
-            // if (reponse.equals(M1.get(les_reponse.get(les_reponse.size() - 1)))) {
-            // J[0].setScore(J[0].getScore() + 1);
-            // }
-            // }
 
-            // if (i == 1) {
-            // if (reponse.equals(M1.get(les_reponse.get(les_reponse.size() - 1)))) {
-            // J[1].setScore(J[1].getScore() + 1);
-            // }
-            // }
+         
 
             // reponsTextField.setText("");
             // scorLabel.setText(String.valueOf(J[i].getName()) + "votre score est = " +
@@ -181,12 +160,12 @@ public class Interface_qst implements ActionListener {
             // System.out.println(String.valueOf(J[i].getName()) + " " +
             // String.valueOf(J[i].getScore()));
             // pre.setText(J[i].getName());
-            // if (gagner() || qst_epuise()){
-            // principal_pan.setLayout(new GridLayout(1, 1));
-            // principal_pan.remove(scorPanel);
-            // principal_pan.remove(qst_label);
-            // principal_pan.remove(qst_pre);
-            // principal_pan.add(pan_final);
+             if (gagner() || qst_epuise()){
+             principal_pan.setLayout(new GridLayout(1, 1));
+             principal_pan.remove(scorPanel);
+             principal_pan.remove(qst_label);
+             principal_pan.remove(qst_pre);
+             principal_pan.add(pan_final);
             // }
 
             reponse = reponsTextField.getText();
@@ -209,10 +188,10 @@ public class Interface_qst implements ActionListener {
         }
 
         if (e.getSource() == getscore) {
-            System.out.println(String.valueOf(j11.getName()) + " " + String.valueOf(j11.getScore()));
-            System.out.println(String.valueOf(j22.getName()) + " " + String.valueOf(j22.getScore()));
+            System.out.println(String.valueOf(J[0].getName()) + " " + String.valueOf(J[0].getScore()));
+            System.out.println(String.valueOf(J[1].getName()) + " " + String.valueOf(J[1].getScore()));
 
-        }
+        }}
 
     }
 
